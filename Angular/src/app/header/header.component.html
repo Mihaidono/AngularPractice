@@ -1,0 +1,16 @@
+<nav id="my-navbar">
+  <ul>
+    <li class="logotype">
+      <a href="">BrikoDepo</a>
+    </li>
+    <li class="dynamic-menu" (click)="toggleMenu()">
+      <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+    </li>
+    <li class="menu" [class.is-open]="isMenuOpen">
+      <button (click)="GoToHome()" class="menu-item">Home</button>
+      <button (click)="GoToInventory()" class="menu-item">Inventory</button>
+      <button class="menu-item">Sign in / Register</button>
+      <button (click)="GoToContact()" class="menu-item">Contact</button>
+    </li>
+  </ul>
+</nav>
