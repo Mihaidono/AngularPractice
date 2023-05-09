@@ -1,8 +1,8 @@
 <div class="itemList">
     <div *ngFor="let item of itemList" class="item">
-        <p>Name: {{item}}</p>
-        <p>Description: {{item}}</p>
-        <p>Quantity: {{item}}</p>
+        <p>Name: {{item.name}}</p>
+        <p>Description: {{item.category}}</p>
+        <p>Quantity: {{item.number}}</p>
         <img src="../../../assets/Brick.jpg">
         <button>Edit</button>
         <button>Delete</button>

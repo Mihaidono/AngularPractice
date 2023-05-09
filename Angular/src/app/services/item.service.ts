@@ -7,35 +7,35 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ItemService {
-  readonly baseUrl = '';
+  readonly baseUrl = 'http://127.0.0.1:5000';
   constructor(public httpClient: HttpClient) {}
 
   getItems(): Observable<Item> {
-    return this.httpClient.get(this.baseUrl + 'get') as Observable<Item>;
+    return this.httpClient.get(this.baseUrl + '/piu/get_all_items') as Observable<Item>;
   }
 
   getItemById(id: number): Observable<Item> {
     return this.httpClient.get(
-      this.baseUrl + 'getItems/' + id
+      this.baseUrl + '/piu/get_item_by_id/' + id
     ) as Observable<Item>;
   }
 
   createItem(item: Item): Observable<Item> {
     return this.httpClient.post(
-      this.baseUrl + 'post',
+      this.baseUrl + '/piu/create_item',
       item
     ) as Observable<Item>;
   }
 
   delete(id: number): Observable<null> {
     return this.httpClient.delete(
-      this.baseUrl + 'delete/' + id
+      this.baseUrl + '/piu/delete_item_by_id/' + id
     ) as unknown as Observable<null>;
   }
 
   edit(item: Item): Observable<null> {
     return this.httpClient.put(
-      this.baseUrl + 'edit/' + item.id,
+      this.baseUrl + '/piu/update_item/' + item.id,
       item
     ) as unknown as Observable<null>;
   }
