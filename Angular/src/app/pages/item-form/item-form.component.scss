@@ -1,0 +1,13 @@
+.page {
+  padding: 20px;
+  margin: 10px;
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    height: 35px;
+    text-align: center;
+  }
+}

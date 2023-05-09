@@ -10,6 +10,11 @@ import { InventoryComponent } from './pages/inventory/inventory.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ItemFormComponent } from './pages/item-form/item-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,19 @@ import { ContactComponent } from './pages/contact/contact.component';
     HomeComponent,
     InventoryComponent,
     ContactComponent,
+    ItemFormComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

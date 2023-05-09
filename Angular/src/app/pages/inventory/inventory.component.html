@@ -1,1 +1,10 @@
-<p>inventory works!</p>
+<div class="itemList">
+    <div *ngFor="let item of itemList" class="item">
+        <p>Name: {{item}}</p>
+        <p>Description: {{item}}</p>
+        <p>Quantity: {{item}}</p>
+        <img src="../../../assets/Brick.jpg">
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+</div>
