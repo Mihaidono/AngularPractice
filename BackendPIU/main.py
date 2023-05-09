@@ -1,6 +1,6 @@
 from bson import ObjectId
 from pymongo.mongo_client import MongoClient
-from flask import Flask, jsonify, request
+from flask import Flask, request
 
 
 def get_database():
@@ -26,8 +26,16 @@ def create_item():
 
 
 @app.route('/piu/update_item/<id>', methods=['PUT'])
-def update_item(id):
-    
+def update_item_by_id(id):
+    try:
+        object_update_to_be_made = request.get_json()
+        result = item_collection.update_one({'_id': ObjectId(id)}, {'$set': object_update_to_be_made})
+        if result.modified_count == 1:
+            return 'Object updated successfully', 200
+        else:
+            return 'Object not found', 404
+    except Exception:
+        return 'Object could not be updated', 400
 
 
 @app.route('/piu/get_item_by_id/<id>', methods=['GET'])
