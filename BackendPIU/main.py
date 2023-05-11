@@ -56,7 +56,7 @@ def get_all_item():
         items = list(item_collection.find())
         for item in items:
             item['_id'] = str(item['_id'])
-        return {'items': items}, 200
+        return items, 200
     except Exception:
         return 'Objects could not be found', 400
 
