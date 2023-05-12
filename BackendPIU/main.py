@@ -1,6 +1,6 @@
 from bson import ObjectId
 from pymongo.mongo_client import MongoClient
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 
 def get_database():
@@ -44,7 +44,7 @@ def get_item_by_id(id):
         item = item_collection.find_one({'_id': ObjectId(id)})
         if item:
             item['_id'] = str(item['_id'])
-            return item, 200
+            return jsonify(item), 200
     except Exception:
         return 'Object could not be returned', 400
     return "Object's ID does not exist", 404
@@ -56,7 +56,7 @@ def get_all_item():
         items = list(item_collection.find())
         for item in items:
             item['_id'] = str(item['_id'])
-        return items, 200
+        return jsonify(items), 200
     except Exception:
         return 'Objects could not be found', 400
 
