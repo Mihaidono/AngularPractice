@@ -1,6 +1,7 @@
 from bson import ObjectId
 from pymongo.mongo_client import MongoClient
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 
 def get_database():
@@ -13,7 +14,7 @@ def get_database():
 item_collection = get_database()["item_list"]
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/piu/create_item', methods=['POST'])
 def create_item():

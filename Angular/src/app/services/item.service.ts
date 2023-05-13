@@ -27,13 +27,13 @@ export class ItemService {
     ) as Observable<Item>;
   }
 
-  delete(id: number): Observable<null> {
+  deleteItem(id: number): Observable<null> {
     return this.httpClient.delete(
       this.baseUrl + '/piu/delete_item_by_id/' + id
     ) as unknown as Observable<null>;
   }
 
-  edit(item: Item): Observable<null> {
+  editItem(item: Item): Observable<null> {
     return this.httpClient.put(
       this.baseUrl + '/piu/update_item/' + item.id,
       item
