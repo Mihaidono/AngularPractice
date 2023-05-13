@@ -1,12 +1,33 @@
+<div
+  *ngIf="itemList === undefined || itemList.length === 0"
+  class="error-image404"
+>
+  <img src="../../../assets/404problem_image.png" />
+</div>
 <div class="itemList">
   <div *ngFor="let item of itemList" class="item">
     <p>Name: {{ item.name }}</p>
     <p>Category: {{ item.category }}</p>
     <p>Quantity: {{ item.number }}</p>
     <img src="../../../assets/Brick.jpg" />
-    <button mat-raised-button class="inventory-button">Edit</button>
-    <button mat-raised-button class="inventory-button" (click)="deleteItem(item.id)">
+    <button
+      mat-raised-button
+      class="inventory-button"
+      (click)="updateItem(item.id)"
+    >
+      Edit
+    </button>
+
+    <button
+      mat-raised-button
+      class="inventory-button"
+      (click)="deleteItem(item.id)"
+    >
       Delete
     </button>
   </div>
 </div>
+
+<button mat-mini-fab class="add-item-button" (click)="addItem()">
+  <mat-icon>add</mat-icon>
+</button>

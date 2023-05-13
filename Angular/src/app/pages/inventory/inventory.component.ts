@@ -16,10 +16,10 @@ export class InventoryComponent implements OnInit {
   constructor(public dialog: MatDialog, public itemService: ItemService) {}
 
   ngOnInit() {
-    this.fetchItemList();
+    this.getItemList();
   }
 
-  fetchItemList() {
+  getItemList() {
     this.itemService.getItems().subscribe(
       (response: any) => {
         this.itemList = response;
@@ -34,13 +34,25 @@ export class InventoryComponent implements OnInit {
     if (itemId !== undefined) {
       this.itemService.deleteItem(itemId).subscribe(
         (response) => {
-          this.itemList = this.itemList.filter((item) => item.id !== itemId);
+          this.getItemList();
+          //doesn't work
         },
         (error) => {
           console.log(error);
         }
       );
     }
+  }
+
+  updateItem(itemId: number | undefined) {
+    if (itemId !== undefined) {
+      //implementation needed
+      this.getItemList();
+    }
+  }
+
+  addItem(){
+    //implementation needed
   }
 
   openDialog(): void {

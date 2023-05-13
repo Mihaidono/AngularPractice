@@ -1,10 +1,31 @@
 $menuBreakpoint1: 1080px;
-$primary-color:#bb04b5;
-$main-background-color:#1a1f23;
+$primary-color: #bb04b5;
+$main-background-color: #1a1f23;
 
 .inventory-button {
-  background-color: $primary-color; 
+  background-color: $primary-color;
   color: #ffffff;
+}
+
+.add-item-button {
+  background-color: $primary-color;
+  color: #ffffff;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.error-image404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin-top: 100px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 .itemList {
