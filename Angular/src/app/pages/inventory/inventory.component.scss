@@ -1,5 +1,11 @@
 $menuBreakpoint1: 1080px;
-$menuBreakpoint2: 720px;
+$primary-color:#bb04b5;
+$main-background-color:#1a1f23;
+
+.inventory-button {
+  background-color: $primary-color; 
+  color: #ffffff;
+}
 
 .itemList {
   padding: 10px;
@@ -12,13 +18,10 @@ $menuBreakpoint2: 720px;
     justify-content: space-evenly;
   }
 
-  @media (max-width: $menuBreakpoint2) {
-    justify-content: space-evenly;
-  }
-
   .item {
-    color: white;
-    border: 2px solid white;
+    color: #ffffff;
+    border: 5px solid #000000;
+    border-radius: 20px;
     width: 300px;
     height: 400px;
     margin: 10px;
@@ -29,7 +32,6 @@ $menuBreakpoint2: 720px;
       width: 90%;
       border: 2px solid transparent;
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-
       border-radius: 20px;
     }
   }
@@ -39,5 +41,17 @@ $menuBreakpoint2: 720px;
     margin: 10px;
     border-radius: 10px;
     width: 50px;
+  }
+
+  p {
+    background-color: $main-background-color;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #000000;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
   }
 }

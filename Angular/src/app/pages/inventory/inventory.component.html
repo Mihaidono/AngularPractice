@@ -1,10 +1,12 @@
 <div class="itemList">
-    <div *ngFor="let item of itemList" class="item">
-        <p>Name: {{item.name}}</p>
-        <p>Category: {{item.category}}</p>
-        <p>Quantity: {{item.number}}</p>
-        <img src="../../../assets/Brick.jpg">
-        <button>Edit</button>
-        <button (click)="deleteItem(item.id)">Delete</button>
-    </div>
+  <div *ngFor="let item of itemList" class="item">
+    <p>Name: {{ item.name }}</p>
+    <p>Category: {{ item.category }}</p>
+    <p>Quantity: {{ item.number }}</p>
+    <img src="../../../assets/Brick.jpg" />
+    <button mat-raised-button class="inventory-button">Edit</button>
+    <button mat-raised-button class="inventory-button" (click)="deleteItem(item.id)">
+      Delete
+    </button>
+  </div>
 </div>
