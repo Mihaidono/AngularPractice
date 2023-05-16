@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ItemService } from 'src/app/services/item.service';
 
 export interface DialogData {
-  id: number;
+  idToBeEdited: number;
 }
 
 @Component({
@@ -17,6 +18,7 @@ export class ItemFormComponent implements OnInit {
   constructor( private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ItemFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    public itemService: ItemService
   ) {}
 
   onNoClick(): void {

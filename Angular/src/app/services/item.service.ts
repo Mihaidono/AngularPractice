@@ -10,8 +10,8 @@ export class ItemService {
   readonly baseUrl = 'http://127.0.0.1:5000';
   constructor(public httpClient: HttpClient) {}
 
-  getItems(): Observable<Item> {
-    return this.httpClient.get(this.baseUrl + '/piu/get_all_items') as Observable<Item>;
+  getItems(): Observable<Item[]> {
+    return this.httpClient.get(this.baseUrl + '/piu/get_all_items') as Observable<Item[]>;
   }
 
   getItemById(id: number): Observable<Item> {
@@ -20,23 +20,23 @@ export class ItemService {
     ) as Observable<Item>;
   }
 
-  createItem(item: Item): Observable<Item> {
+  createItem(item: Item): Observable<string> {
     return this.httpClient.post(
       this.baseUrl + '/piu/create_item',
       item
-    ) as Observable<Item>;
+    ) as Observable<string>;
   }
 
-  deleteItem(id: number): Observable<null> {
+  deleteItem(id: number): Observable<string> {
     return this.httpClient.delete(
       this.baseUrl + '/piu/delete_item_by_id/' + id
-    ) as unknown as Observable<null>;
+    ) as unknown as Observable<string>;
   }
 
-  editItem(item: Item): Observable<null> {
+  editItem(item: Item): Observable<string> {
     return this.httpClient.put(
       this.baseUrl + '/piu/update_item/' + item.id,
       item
-    ) as unknown as Observable<null>;
+    ) as unknown as Observable<string>;
   }
 }

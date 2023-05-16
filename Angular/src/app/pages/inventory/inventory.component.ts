@@ -3,6 +3,7 @@ import { ItemFormComponent } from '../item-form/item-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Item } from 'src/models/item';
 import { ItemService } from 'src/app/services/item.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-inventory',
@@ -12,12 +13,15 @@ import { ItemService } from 'src/app/services/item.service';
 export class InventoryComponent implements OnInit {
   error?: string;
   loadingText: string = 'Loading ';
-
-  elapsedTimeNoResponse: number = 0;
+  snackBarText: string = '';
 
   itemList!: Item[];
 
-  constructor(public dialog: MatDialog, public itemService: ItemService) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    public itemService: ItemService
+  ) {}
 
   ngOnInit() {
     this.getItemList();
@@ -32,13 +36,12 @@ export class InventoryComponent implements OnInit {
       } else {
         this.loadingText = 'Loading .';
       }
-      this.elapsedTimeNoResponse += 1;
     }, 1000);
   }
 
   getItemList() {
     this.itemService.getItems().subscribe(
-      (response: any) => {
+      (response: Item[]) => {
         this.itemList = response;
       },
       (error) => {
@@ -52,7 +55,7 @@ export class InventoryComponent implements OnInit {
       this.itemService.deleteItem(itemId).subscribe(
         (response) => {
           this.getItemList();
-          //doesn't work
+          this.snackBarText = response;
         },
         (error) => {
           console.log(error);
@@ -61,24 +64,17 @@ export class InventoryComponent implements OnInit {
     }
   }
 
-  updateItem(itemId: number | undefined) {
-    if (itemId !== undefined) {
-      //implementation needed
-      this.getItemList();
-    }
-  }
-
-  addItem() {
-    //implementation needed
-  }
-
-  openDialog(): void {
+  openDialog(id: number | null | undefined): void {
     const dialogRef = this.dialog.open(ItemFormComponent, {
-      data: {},
+      data: { idToBeEdited: id },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      this.openSnackBar(this.snackBarText, '');
     });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, { duration: 2000 });
   }
 }
