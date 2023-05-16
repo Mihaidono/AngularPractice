@@ -11,12 +11,29 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class InventoryComponent implements OnInit {
   error?: string;
+  loadingText: string = 'Loading ';
+
+  elapsedTimeNoResponse: number = 0;
+
   itemList!: Item[];
 
   constructor(public dialog: MatDialog, public itemService: ItemService) {}
 
   ngOnInit() {
     this.getItemList();
+    this.loadingAnimation();
+  }
+
+  loadingAnimation(): void {
+    setInterval(() => {
+      let pointCount = this.loadingText.split('.').length;
+      if (pointCount <= 3) {
+        this.loadingText += '.';
+      } else {
+        this.loadingText = 'Loading .';
+      }
+      this.elapsedTimeNoResponse += 1;
+    }, 1000);
   }
 
   getItemList() {
@@ -51,7 +68,7 @@ export class InventoryComponent implements OnInit {
     }
   }
 
-  addItem(){
+  addItem() {
     //implementation needed
   }
 

@@ -1,9 +1,17 @@
-<div
-  *ngIf="itemList === undefined || itemList.length === 0"
-  class="error-image404"
->
-  <img src="../../../assets/404problem_image.png" />
+<div *ngIf="elapsedTimeNoResponse <= 9; else timeoutBlock">
+  <div
+    *ngIf="itemList === undefined || itemList.length === 0"
+    class="loading404"
+  >
+    <mat-spinner></mat-spinner>
+    <p id="loading-label">{{ loadingText }}</p>
+  </div>
 </div>
+<ng-template #timeoutBlock>
+  <div class="loading404">
+    <img src="../../../assets/404problem_image.png" />
+  </div>
+</ng-template>
 <div class="itemList">
   <div *ngFor="let item of itemList" class="item">
     <p>Name: {{ item.name }}</p>
@@ -27,7 +35,8 @@
     </button>
   </div>
 </div>
-
-<button mat-mini-fab class="add-item-button" (click)="addItem()">
-  <mat-icon>add</mat-icon>
-</button>
+<div *ngIf="itemList != undefined">
+  <button mat-mini-fab class="add-item-button" (click)="addItem()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
