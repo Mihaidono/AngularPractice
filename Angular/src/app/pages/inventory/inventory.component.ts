@@ -13,7 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class InventoryComponent implements OnInit {
   error?: string;
   loadingText: string = 'Loading ';
-  snackBarText: string = '';
 
   itemList!: Item[];
 
@@ -53,15 +52,13 @@ export class InventoryComponent implements OnInit {
   deleteItem(itemId: number | undefined) {
     if (itemId !== undefined) {
       this.itemService.deleteItem(itemId).subscribe(
-        (response) => {
-          this.getItemList();
-          this.snackBarText = response;
-        },
+        (response) => {},
         (error) => {
           console.log(error);
         }
       );
     }
+    this.openSnackBar('Deleted Item', 'Nice');
   }
 
   openDialog(id: number | null | undefined): void {
@@ -70,11 +67,16 @@ export class InventoryComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.openSnackBar(this.snackBarText, '');
+      this.openSnackBar('Succesfully', 'Nice');
     });
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, { duration: 2000 });
+    const snackBarRef = this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+    snackBarRef.afterDismissed().subscribe(() => {
+      location.reload();
+    });
   }
 }

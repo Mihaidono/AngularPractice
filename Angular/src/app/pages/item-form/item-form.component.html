@@ -1,39 +1,22 @@
 <div class="page">
   <div class="form" [formGroup]="form">
     <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="Name"
-        formControlName="name"
-      />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
-        <input
-          type="text"
-          matInput
-          placeholder="Description"
-          formControlName="description"
-        />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+      <mat-label>Category</mat-label>
+      <input type="text" matInput formControlName="category" />
+    </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
-        <input
-          type="text"
-          matInput
-          placeholder="Quantity"
-          formControlName="quantity"
-        />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input type="text" matInput formControlName="quantity" />
+    </mat-form-field>
   </div>
+  <button mat-raised-button class="inventory-button">
+    {{ formButtonText }}
+  </button>
+  <button mat-raised-button class="inventory-button">Close</button>
 </div>

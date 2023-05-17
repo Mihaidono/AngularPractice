@@ -35,7 +35,7 @@ export class ItemService {
 
   editItem(item: Item): Observable<string> {
     return this.httpClient.put(
-      this.baseUrl + '/piu/update_item/' + item.id,
+      this.baseUrl + '/piu/update_item/' + item._id,
       item
     ) as unknown as Observable<string>;
   }

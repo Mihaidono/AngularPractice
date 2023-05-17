@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ItemService } from 'src/app/services/item.service';
 
 export interface DialogData {
-  idToBeEdited: number;
+  idToBeEdited: number | undefined | null;
 }
 
 @Component({
@@ -14,8 +14,10 @@ export interface DialogData {
 })
 export class ItemFormComponent implements OnInit {
   form!: FormGroup;
-  
-  constructor( private formBuilder: FormBuilder,
+  formButtonText!: string;
+
+  constructor(
+    private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ItemFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     public itemService: ItemService
@@ -25,7 +27,11 @@ export class ItemFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  
+  saveItem(): void {
+    this.itemService.createItem;
+    this.dialogRef.close();
+  }
+
   ngOnInit(): void {
     this.CreateForm();
   }
@@ -33,7 +39,7 @@ export class ItemFormComponent implements OnInit {
   private CreateForm(): void {
     this.form = this.formBuilder.group({
       name: [null],
-      description: [null],
+      category: [null],
       quantity: [null],
     });
   }
