@@ -15,8 +15,8 @@
       <input type="text" matInput formControlName="quantity" />
     </mat-form-field>
   </div>
-  <button mat-raised-button class="inventory-button">
+  <button mat-raised-button class="inventory-button" (click)="submitForm()">
     {{ formButtonText }}
   </button>
-  <button mat-raised-button class="inventory-button">Close</button>
+  <button mat-raised-button class="inventory-button" (click)="cancelForm()">Close</button>
 </div>

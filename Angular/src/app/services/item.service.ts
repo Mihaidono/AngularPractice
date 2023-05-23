@@ -11,32 +11,38 @@ export class ItemService {
   constructor(public httpClient: HttpClient) {}
 
   getItems(): Observable<Item[]> {
-    return this.httpClient.get(this.baseUrl + '/piu/get_all_items') as Observable<Item[]>;
+    return this.httpClient.get(
+      this.baseUrl + '/piu/get_all_items'
+    ) as Observable<Item[]>;
   }
 
-  getItemById(id: number): Observable<Item> {
+  getItemById(id: number | undefined | null): Observable<Item> {
     return this.httpClient.get(
       this.baseUrl + '/piu/get_item_by_id/' + id
     ) as Observable<Item>;
   }
 
-  createItem(item: Item): Observable<string> {
+  createItem(item: Item): Observable<Item> {
+    delete item._id;
     return this.httpClient.post(
       this.baseUrl + '/piu/create_item',
       item
-    ) as Observable<string>;
+    ) as Observable<Item>;
   }
 
-  deleteItem(id: number): Observable<string> {
+  deleteItem(id: number | undefined | null): Observable<string> {
     return this.httpClient.delete(
       this.baseUrl + '/piu/delete_item_by_id/' + id
     ) as unknown as Observable<string>;
   }
 
-  editItem(item: Item): Observable<string> {
+  editItem(item: Item): Observable<Item> {
+    let id = item._id;
+    delete item._id;
+
     return this.httpClient.put(
-      this.baseUrl + '/piu/update_item/' + item._id,
+      this.baseUrl + '/piu/update_item/' + id,
       item
-    ) as unknown as Observable<string>;
+    ) as unknown as Observable<Item>;
   }
 }

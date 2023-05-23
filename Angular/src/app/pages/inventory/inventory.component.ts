@@ -58,7 +58,7 @@ export class InventoryComponent implements OnInit {
         }
       );
     }
-    this.openSnackBar('Deleted Item', 'Nice');
+    this.openSnackBar('Deleting Item...','');
   }
 
   openDialog(id: number | null | undefined): void {
