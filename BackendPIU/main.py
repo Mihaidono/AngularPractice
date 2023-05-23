@@ -1,10 +1,8 @@
 from bson import ObjectId
 from pymongo.mongo_client import MongoClient
 from flask import Flask, request, jsonify
-<<<<<<< HEAD
 from flask_cors import CORS
-=======
->>>>>>> back-end-piu
+
 
 
 def get_database():
