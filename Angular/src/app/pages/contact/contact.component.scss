@@ -1,15 +1,19 @@
 $formBreakpoint1: 900px;
 $formBreakpoint2: 480px;
-$backgroundColor: #1a1f23;
-$mainAccentColor: #bb04b5;
-$formColor: #131e2d;
+$backgroundColor: #f5a3c8;
+$mainAccentColor: #ed0d92;
+$formColor: #ed0d92;
 
 .main-container {
   background-color: $backgroundColor;
   width: 40%;
   text-align: center;
 
-  margin-top: 2%;
+  ::placeholder {
+    color: #ffffff;
+  }
+
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
 
@@ -27,6 +31,9 @@ $formColor: #131e2d;
 
   .main-statement {
     color: $mainAccentColor;
+    font-family: HelloKitty;
+    font-size: 40px;
+    margin: 20px;
     border-radius: 20px;
     margin-top: 2%;
   }
@@ -41,6 +48,8 @@ $formColor: #131e2d;
       label {
         color: $mainAccentColor;
         border: 0px;
+        font-family: HelloKitty;
+        font-size: 30px;
         background-color: $backgroundColor;
       }
 
@@ -106,6 +115,9 @@ $formColor: #131e2d;
     .submit-button {
       margin-top: 3%;
       margin-bottom: 3%;
+      font-family: HelloKitty;
+      font-size: 20px;
+      background-color: #ed0d92;
     }
   }
 }
