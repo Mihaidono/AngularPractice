@@ -1,9 +1,9 @@
 $menuBreakpoint1: 1080px;
-$primary-color: #bb04b5;
-$main-background-color: #1a1f23;
+$primary-color: #ed0d92;
+$main-background-color: #f5a3c8;
 
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #bb04b5;
+  --mdc-circular-progress-active-indicator-color: #f5a3c8;
 }
 
 .inventory-button {
@@ -12,7 +12,7 @@ $main-background-color: #1a1f23;
 }
 
 .add-item-button {
-  background-color: $primary-color;
+  background-color: $main-background-color;
   color: #ffffff;
   position: fixed;
   bottom: 20px;
@@ -32,6 +32,7 @@ $main-background-color: #1a1f23;
   }
 
   p {
+    font-family: HelloKitty;
     color: #ffffff;
     font-size: large;
     margin-top: 30px;
@@ -49,18 +50,33 @@ $main-background-color: #1a1f23;
     justify-content: space-evenly;
   }
 
+  .lower-button-span {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+  }
+
   .item {
     color: #ffffff;
-    border: 5px solid #000000;
+    border: 5px solid $main-background-color;
     border-radius: 20px;
     width: 300px;
     height: 400px;
     margin: 10px;
     padding: 10px;
+    position: relative;
     text-align: center;
+    justify-content: center;
+
+    p{
+      font-family: HelloKitty;
+      font-size: 22px;
+    }
 
     img {
-      width: 90%;
+      height: 45%;
+      text-align: center;
       border: 2px solid transparent;
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       border-radius: 20px;
@@ -72,6 +88,7 @@ $main-background-color: #1a1f23;
     margin: 10px;
     border-radius: 10px;
     width: 50px;
+    background-color: $main-background-color;
   }
 
   p {
@@ -79,7 +96,7 @@ $main-background-color: #1a1f23;
     text-align: center;
     color: #ffffff;
     border-radius: 10px;
-    border: 3px solid #000000;
+    border: 3px solid #ffffff;
 
     margin-top: 10px;
     margin-bottom: 10px;

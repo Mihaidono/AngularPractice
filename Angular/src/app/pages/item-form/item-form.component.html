@@ -1,22 +1,24 @@
 <div class="page">
   <div class="form" [formGroup]="form">
     <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
+      <mat-label class="form-field">Name</mat-label>
       <input type="text" matInput formControlName="name" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Category</mat-label>
+      <mat-label class="form-field">Category</mat-label>
       <input type="text" matInput formControlName="category" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Quantity</mat-label>
+      <mat-label class="form-field">Quantity</mat-label>
       <input type="text" matInput formControlName="quantity" />
     </mat-form-field>
   </div>
   <button mat-raised-button class="inventory-button" (click)="submitForm()">
     {{ formButtonText }}
   </button>
-  <button mat-raised-button class="inventory-button" (click)="cancelForm()">Close</button>
+  <button mat-raised-button class="inventory-button" (click)="cancelForm()">
+    Close
+  </button>
 </div>

@@ -8,22 +8,24 @@
     <p>Name: {{ item.name }}</p>
     <p>Category: {{ item.category }}</p>
     <p>Quantity: {{ item.number }}</p>
-    <img src="../../../assets/Brick.jpg" />
-    <button
-      mat-raised-button
-      class="inventory-button"
-      (click)="openDialog(item._id)"
-    >
-      Edit
-    </button>
+    <img src="../../../assets/hello-kitty-1.jpg" />
+    <span class="lower-button-span">
+      <button
+        mat-raised-button
+        class="inventory-button"
+        (click)="openDialog(item._id)"
+      >
+        Edit
+      </button>
 
-    <button
-      mat-raised-button
-      class="inventory-button"
-      (click)="deleteItem(item._id)"
-    >
-      Delete
-    </button>
+      <button
+        mat-raised-button
+        class="inventory-button"
+        (click)="deleteItem(item._id)"
+      >
+        Delete
+      </button>
+    </span>
   </div>
 </div>
 <div *ngIf="itemList != undefined">

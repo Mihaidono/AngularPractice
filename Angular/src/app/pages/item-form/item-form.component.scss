@@ -1,26 +1,36 @@
-$primary-color: #bb04b5;
+$primary-color: #ed0d92;
+$secondaryAccentColor: #f5a3c8;
 
 .page {
   padding: 20px;
   margin: 10px;
+  background-color: $secondaryAccentColor;
+
   .form {
     display: flex;
     flex-direction: column;
+    background-color: $secondaryAccentColor;
   }
 
-  input {
-    height: 35px;
+  mat-form-field {
+    height: 100px;
     text-align: center;
+    color: #ffffff;
+    background-color: $secondaryAccentColor; 
+  }
+  mat-label {
+    font-family: HelloKitty;
+    color: #ffffff;
+    background-color: $secondaryAccentColor;
   }
 
   .inventory-button {
     background-color: $primary-color;
+    font-family: HelloKitty;
+    font-size: 20px;
     color: #ffffff;
-    margin-left:20px;
+    margin-left: 20px;
     margin-right: 20px;
-
-    padding:10px;
+    padding: 10px;
   }
 }
-
-

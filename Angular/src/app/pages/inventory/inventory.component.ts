@@ -74,6 +74,7 @@ export class InventoryComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     const snackBarRef = this._snackBar.open(message, action, {
       duration: 2000,
+      panelClass: 'custom-snackbar',
     });
     snackBarRef.afterDismissed().subscribe(() => {
       location.reload();
