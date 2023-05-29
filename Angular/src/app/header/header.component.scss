@@ -1,7 +1,7 @@
 $menuHeight: 60px;
 $menuBreakpoint: 900px;
-$mainAccentColor: #bb04b5;
-
+$mainAccentColor: #ed0d92;
+$secondaryAccentColor: #f5a3c8;
 #my-navbar {
   ul {
     margin: 0;
@@ -9,7 +9,7 @@ $mainAccentColor: #bb04b5;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #000000;
+    background: $secondaryAccentColor;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
@@ -17,10 +17,12 @@ $mainAccentColor: #bb04b5;
     a {
       padding: 0 8px;
       text-decoration: none;
-      background: -webkit-linear-gradient($mainAccentColor, #06e1b9);
+      font-family: Boldins;
+      font-size: 72px;
+      background: -webkit-linear-gradient(left, $mainAccentColor, #f90013);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 30px;
+      font-size: 40px;
       margin-left: 100px;
     }
   }
@@ -36,7 +38,7 @@ $mainAccentColor: #bb04b5;
       line-height: $menuHeight;
     }
 
-    i:hover{
+    i:hover {
       border-bottom: 1px solid $mainAccentColor;
       transition: 0.5s;
     }
@@ -57,11 +59,11 @@ $mainAccentColor: #bb04b5;
         display: block;
         position: absolute;
         top: #{$menuHeight + 2};
-        background: black;
+        background: $secondaryAccentColor;
         width: 100%;
 
         .menu-item {
-          border-bottom: 1px solid $mainAccentColor;
+          border-bottom: 1px solid white;
           color: white;
         }
       }
@@ -79,7 +81,7 @@ $mainAccentColor: #bb04b5;
       color: whitesmoke;
       margin-left: 10px;
       margin-right: 10px;
-      background-color: black;
+      background-color: $secondaryAccentColor;
     }
 
     .menu-item:hover {
